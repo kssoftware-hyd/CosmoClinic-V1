@@ -1,0 +1,42 @@
+/* custom.css - loads AFTER style.css and home.css. Change --brand to recolour everything below. */
+:root{--brand:#1a948b;--brand-dark:#127a72;--brand-tint:#e9f6f5}
+
+/* ---- Taller header logo (ring is 70px in style.css) ---- */
+.logoring{width:92px;height:92px}
+.header .row{padding:.4rem 1.25rem}
+@media(min-width:1241px){.logoring{width:88px;height:88px}}
+@media(max-width:860px){.logo .logoring{width:68px;height:68px}}
+
+/* ---- Footer only: brand teal rgb(26,148,139) ---- */
+.footer{background:var(--brand)!important}
+.footer,.footer a,.footer h3,.footer h4,.footer p,.footer .legal p,.footer .legal a{color:#fff!important}
+.footer a.mapbtn{background:#0b5e58}
+.footer .legal{border-color:rgba(255,255,255,.35)}
+.footer .grid4{align-items:start}
+
+/* ---- Nav: active Gallery dropdown ---- */
+.ddbtn.active{color:#14998f;border-bottom:2px solid #14998f}
+
+/* ---- Home banner image (images/HOMEPAGE BANNER.png) ---- */
+.hx-banner-strip{background:#1a948b;line-height:0}
+.hx-banner-strip img{width:100%;height:auto;display:block}
+
+/* ---- Home clinic photo strip (home1 - home4) ---- */
+.hx-clinic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.hx-clinic-grid figure{margin:0}
+.hx-clinic-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}
+@media(max-width:980px){.hx-clinic-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- Patient results ---- */
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.pr-grid img{width:100%;height:auto;border-radius:12px}
+
+/* ---- Gallery + blogs ---- */
+.gal-sub{margin:0 0 22px}
+.gal-cartoon img{background:#e6f5f3}
+.blog-post{scroll-margin-top:110px}
+.blog-post h2{margin-top:0}.blog-post p{max-width:78ch}
+.blog-meta{font-size:.9rem;color:#127a72;font-weight:600;margin:0 0 10px}
+
+/* ---- Missing optional image: hide its box ---- */
+.img-missing{display:none!important}
