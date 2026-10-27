@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Saira:wght@600&display=swap");
+
+/* ==========================================================
+   page-fixes.css  (load AFTER style.css and custom.css)
+   1) Header: clinic name bold, clear and larger
+   2) Patient results: side-by-side joined image pair
+   ========================================================== */
+
+/* ---------- 1. HEADER BRAND TEXT (matches the Cosmo logo) ----------
+   COSMO         : logo teal, squared sans (Saira)
+   tagline       : logo purple, italic serif script
+   INTERNATIONAL : charcoal sans, between two teal lines
+   Beats the .lw rules in style.css (1241px+ and 860px- media rules too) */
+.header .logo .lw {
+  align-items: stretch !important;
+  text-align: center;
+  line-height: 1 !important;
+}
+
+.header .logo .lw b {
+  font-family: 'Saira', 'Eurostile', 'Segoe UI', Arial, sans-serif !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .14em !important;
+  line-height: 1 !important;
+  color: #55979d !important;          /* logo teal */
+}
+
+.header .logo .lw .tag {
+  display: block;
+  margin: 2px 0 0;
+  font: italic 500 .8rem/1.1 'Playfair Display', Georgia, serif;
+  letter-spacing: .01em;
+  color: #5b4a8f;                     /* logo purple */
+  white-space: nowrap;
+}
+
+.header .logo .lw i {
+  display: block !important;
+  width: 100% !important;
+  height: 2px !important;
+  margin: 4px 0 !important;
+  background: #55979d !important;     /* logo teal line */
+}
+
+.header .logo .lw small {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: .7rem !important;
+  font-weight: 400 !important;
+  letter-spacing: .1em !important;
+  color: #2f3438 !important;          /* logo charcoal */
+  text-transform: uppercase;
+}
+
+@media (max-width: 860px) {
+  .header .logo .lw b     { font-size: 1.5rem !important; }
+  .header .logo .lw .tag  { font-size: .62rem; }
+  .header .logo .lw small { font-size: .52rem !important; letter-spacing: .06em !important; }
+}
+
+/* ---------- 2. PATIENT RESULTS: UNIFORM IMAGE CARDS ----------
+   Every result = same size card (16:10). Photos are never cropped (contain). */
+.pr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pr-grid figure {
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  background: #fff;
+  border: 1px solid var(--line, #d3e6e4);
+  border-radius: 14px;
+  padding: 8px;
+  overflow: hidden;
+  display: flex;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(10, 95, 90, .08);
+}
+
+.pr-grid figure button {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.pr-grid figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* odd last card: centre it at normal size */
+.pr-grid figure:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 10px);
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .pr-grid { grid-template-columns: 1fr; }
+  .pr-grid figure:last-child:nth-child(odd) { width: 100%; }
+}
