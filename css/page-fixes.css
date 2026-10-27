@@ -108,3 +108,67 @@
   .pr-grid { grid-template-columns: 1fr; }
   .pr-grid figure:last-child:nth-child(odd) { width: 100%; }
 }
+
+/* ---------- 3. HOME PAGE: PATIENT RESULTS (5 uniform cards) ---------- */
+.hx-res-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+.hx-res-grid .hx-res { flex: 0 1 calc(33.333% - 15px); min-width: 280px; }
+.hx-res .hx-ph.hx-wide { display: flex; gap: 4px; background: #fff; aspect-ratio: 4 / 3; }
+.hx-res .hx-ph.hx-wide img { position: static; flex: 1 1 0; min-width: 0; width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 620px) { .hx-res-grid .hx-res { flex-basis: 100%; } }
+
+/* ---------- 4. HOME HERO: BEFORE / AFTER CARD ----------
+   Two equal cells, photo fills the cell, tags sit inside the corner.
+   (!important needed to beat the #hx-tweaks block inside index.html) */
+.hx-ba-pair {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+
+.hx-ba-pair .hx-ph {
+  position: relative !important;
+  display: block !important;
+  aspect-ratio: 3 / 4 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+.hx-ba-pair .hx-ph img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
+
+/* BEFORE / AFTER tags (home.css span rule had turned them into inline text) */
+.hx-ba-pair .hx-ph .hx-tag {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  z-index: 3 !important;
+  padding: 4px 10px !important;
+  background: #0a5f5a !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  font: 700 .7rem/1.2 'Figtree', sans-serif !important;
+  letter-spacing: .12em !important;
+}
+
+.hx-ba-pair .hx-ph:last-child .hx-tag {
+  left: auto !important;
+  right: 10px !important;
+  background: #14998f !important;
+}
